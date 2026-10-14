@@ -4,12 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Installing Python and dependencies...'
-                sh '''
-                apt-get update
-                apt-get install -y python3 python3-pip
-                python3 -m pip install --break-system-packages -r requirements.txt
-                '''
+                echo 'Installing dependencies...'
+                sh 'python3 -m pip install --break-system-packages -r requirements.txt'
             }
         }
 
